@@ -1,0 +1,21 @@
+<h1>Current Player: {{player}}</h1>
+
+
+<button (click)="newGame()">Start new game</button>
+
+@if(winner) {
+    <h2>
+        Player {{winner}} won the game!
+    </h2>
+}
+@else {
+    <main>
+        @for(square of squares; track square; let index = $index) {
+            <app-square 
+            [value]=square
+            (click)="makeMove(index)"
+            ></app-square>
+        }
+    </main>
+}
+
