@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SquareComponent } from "../square/square.component";
+import { SquareValue } from "../shared/squareType"
 
 @Component({
     selector: 'app-board',
@@ -9,9 +10,9 @@ import { SquareComponent } from "../square/square.component";
     imports: [SquareComponent]
 })
 export class BoardComponent implements OnInit{
-  squares: any[] = [];
+  squares: SquareValue[] = [];
   xIsNext: boolean = false;
-  winner: string = "";
+  winner: SquareValue = null;
 
   constructor() {}
 
@@ -21,7 +22,7 @@ export class BoardComponent implements OnInit{
 
   newGame() {
     this.squares = Array(9).fill(null);
-    this.winner = "";
+    this.winner = null;
     this.xIsNext = true;
   }
 
@@ -35,7 +36,6 @@ export class BoardComponent implements OnInit{
       this.xIsNext = !this.xIsNext
     }
     this.winner = this.calculateWinner();
-
   }
 
   calculateWinner() {
@@ -55,7 +55,7 @@ export class BoardComponent implements OnInit{
         return this.squares[a];
       }
     }
-    return "";
+    return null;
   }
 
 }

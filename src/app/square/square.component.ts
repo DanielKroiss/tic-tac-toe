@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { SquareValue } from "../shared/squareType"
 
 
 @Component({
@@ -9,5 +10,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './square.component.scss'
 })
 export class SquareComponent {
-   @Input() value: 'X' | 'O' = "X";
+   @Input() value: SquareValue = "X";
 }
